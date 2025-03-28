@@ -63,14 +63,14 @@ public class VoiceCommand : MonoBehaviour
     // Listen for full transcriptions (finalized spoken text)
     private void OnFullTranscriptionReceived(string transcription)
     {
-        Debug.Log($"🎙 Full Transcription: {transcription}");
+        Debug.Log($"Full Transcription: {transcription}");
         DetectKeywords(transcription);
     }
 
     // Restart dictation if it stops
     private void OnDictationStopped()
     {
-        Debug.Log("🎤 Dictation Stopped, Restarting...");
+        Debug.Log("Dictation Stopped, Restarting...");
         RestartDictation(); // Ensures continuous dictation
     }
 
@@ -83,7 +83,7 @@ public class VoiceCommand : MonoBehaviour
         {
             if (processedText.Contains(keyword.ToLower()))
             {
-                Debug.Log($"✅ Recognized Keyword: '{keyword}'");
+                Debug.Log($"Recognized Keyword: '{keyword}'");
 
                 // Ensure UI updates on the main thread
                 UpdateKeywordDisplay(keyword);
@@ -105,7 +105,7 @@ public class VoiceCommand : MonoBehaviour
         }
         else
         {
-            Debug.LogWarning("⚠ TextMeshProUGUI keywordDisplay is not assigned!");
+            Debug.LogWarning("TextMeshProUGUI keywordDisplay is not assigned!");
         }
     }
 
@@ -114,7 +114,7 @@ public class VoiceCommand : MonoBehaviour
     {
         if (targetObject == null)
         {
-            Debug.LogWarning("⚠ Target object is not assigned!");
+            Debug.LogWarning("Target object is not assigned!");
             return;
         }
 
@@ -123,23 +123,23 @@ public class VoiceCommand : MonoBehaviour
         switch (keyword.ToLower())
         {
             case "up":
-                Debug.Log("⬆ Moving Up");
+                Debug.Log("Moving Up");
                 newPosition += Vector3.up * moveDistance;
                 break;
             case "down":
-                Debug.Log("⬇ Moving Down");
+                Debug.Log("Moving Down");
                 newPosition -= Vector3.up * moveDistance;
                 break;
             case "left":
-                Debug.Log("⬅ Moving Left");
+                Debug.Log("Moving Left");
                 newPosition += Vector3.left * moveDistance;
                 break;
             case "right":
-                Debug.Log("➡ Moving Right");
+                Debug.Log( "Moving Right");
                 newPosition += Vector3.right * moveDistance;
                 break;
             default:
-                Debug.Log("⚠ Unhandled Keyword.");
+                Debug.Log("Unhandled Keyword.");
                 return;
         }
 
